@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net47</TargetFramework>
+	  <OutputType>exe</OutputType>
+  </PropertyGroup>
+    
+  <ItemGroup>
+	  <PackageReference Include="HdrHistogram" Version="1.7.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Disruptor\Disruptor.csproj" />
+	  <ProjectReference Include="..\Disruptor.Scheduler\Disruptor.Scheduler.csproj" />
+	  <ProjectReference Include="..\Disruptor.Tests\Disruptor.Tests.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System.Management" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+</Project>

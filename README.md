@@ -1,12 +1,53 @@
-# .NET port of LMAX Disruptor
+# .NET port of LMAX Disruptor [![Build status](https://ci.appveyor.com/api/projects/status/av0e56cl0i1undv5?svg=true)](https://ci.appveyor.com/project/Abc-Arbitrage/disruptor-net)  [![NuGet](https://buildstats.info/nuget/Disruptor)](http://www.nuget.org/packages/Disruptor/)
 
 This project aims to provide the full functionality of the Disruptor to CLR projects.
 
+## Documentation
+
+There is no specific documentation for this project, but most of the information from the Java version is applicable to the .NET version, especially the [core concepts](https://github.com/LMAX-Exchange/disruptor/wiki/Introduction).
+
 ## Roadmap
 
-* Include latest changes made to the java 3.3.5 version 
+* Include latest changes made to the future Java versions
+* Remove exception-based APIs
+* Improve documentation
 
 ## What's new?
+
+28/04/2018 (v3.4.0-alpha):
+
+* Remove Histogram and MutableLong
+* Remove base type from SingleProducerSequencer and MultiProducerSequencer
+* Fix race between run() and halt() on BatchEventProcessor
+* Make obsolete exception-based TryNext methods
+* (Perf) Use generated struct types to improve BatchEventProcessor and ProcessingSequenceBarrier performance
+* (Perf) Remove unneeded unsafe code from MultiProducerSequencer
+* (Perf) Use custom IL to improve RingBuffer indexer performance
+
+05/02/2018 (v3.3.8):
+
+* Add exception free overloads to ISequenced.TryNext
+* Revert belt and braces WaitStategy signalling.
+
+02/11/2017 (v3.3.7):
+
+* All features available in Java Disruptor **3.3.7** have been ported
+* Drop .NET Core 1.1
+* Add .NET Standard 2.0
+
+02/05/2017 (v3.3.6):
+
+* Support .NET Core 1.1
+
+01/04/2017 (v3.3.6-alpha):
+
+* All features available in Java Disruptor **3.3.6** have been ported
+* Use an aggressive spin wait in all blocking wait strategies (#25)
+* Add a new blocking low CPU usage wait strategy
+
+02/08/2016 (v3.3.5):
+
+* All features available in Java Disruptor **3.3.5** have been ported
 
 04/07/2016 (v3.3.4):
 
@@ -23,11 +64,11 @@ The quickest way to get started with the disruptor is by using the [NuGet packag
 
 ## Build from source and run tests
 
-You may also build disruptor directly from the source:
-* you need Visual Studio 2010
-* run build.bat, it will compile, run the tests and output binaries and results into Target folder
+You may also build the Disruptor directly from the source:
+* You need Visual Studio 2017
+* run `Cake-Build.bat`, it will compile, run the tests and output binaries and results into `\output\assembly` folder
 
-You can then run the performance tests: runPerfTest.bat
+You can also run all the performance tests by running `Cake-Perf.bat`.
 
 [NuGet package]: http://nuget.org/packages/Disruptor
 
